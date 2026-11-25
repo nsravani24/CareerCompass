@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Compass</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Career Compass</h1>
+    <nav>
+        <a href="#" onclick="goHome()">Home</a>
+        <a href="#features" onclick="goHome()">Features</a>
+        <a href="#about" onclick="goHome()">About</a>
+        <a href="#" onclick="openFeature('dashboard')">Dashboard</a>
+    </nav>
+</header>
+
+<main id="homePage">
+    <section class="hero">
+        <p class="tagline">YOUR CAREER GUIDE</p>
+        <h2>Get Ready for Your Dream Job</h2>
+        <p>Discover your skills, explore career paths, prepare confidently for interviews and track your job readiness journey.</p>
+        <button onclick="showMessage()">Get Started</button>
+        <p id="message"></p>
+    </section>
+
+    <section id="features">
+        <h2>Explore Our Features</h2>
+        <div class="features-container">
+            <div class="feature-card">
+                <h3>Skill Gap Analyzer</h3>
+                <p>Identify the skills required for your dream job.</p>
+                <button onclick="openFeature('skill-analyzer')">Explore</button>
+            </div>
+            <div class="feature-card">
+                <h3>Learning Roadmap</h3>
+                <p>Follow a step-by-step learning path.</p>
+                <button onclick="openFeature('roadmap')">Explore</button>
+            </div>
+            <div class="feature-card">
+                <h3>Interview Preparation</h3>
+                <p>Practice role-based interview questions.</p>
+                <button onclick="openFeature('interview')">Explore</button>
+            </div>
+            <div class="feature-card">
+                <h3>Resume Studio</h3>
+                <p>Create your resume and analyze your skills.</p>
+                <button onclick="openFeature('resume-studio')">Explore</button>
+            </div>
+            <div class="feature-card">
+                <h3>My Dashboard</h3>
+                <p>Track your points, coins, progress and achievements.</p>
+                <button onclick="openFeature('dashboard')">View Dashboard</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Career Compass</h2>
+        <p>Career Compass is a smart job readiness assistant designed to help students explore career opportunities, identify skill gaps, follow learning roadmaps, practice interviews and build professional resumes.</p>
+    </section>
+</main>
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="feature-page" hidden>
+    <button class="back-button" onclick="goHome()">← Home</button>
+    <h2>My Career Dashboard</h2>
+    <p>Track your learning journey and celebrate your progress!</p>
+
+    <div class="dashboard-grid">
+        <div class="stat-card">
+            <span>⭐</span>
+            <h3 id="totalPoints">0</h3>
+            <p>Total Points</p>
+        </div>
+        <div class="stat-card">
+            <span>🪙</span>
+            <h3 id="totalCoins">0</h3>
+            <p>Total Coins</p>
+        </div>
+        <div class="stat-card">
+            <span>📝</span>
+            <h3 id="totalQuestions">0</h3>
+            <p>Questions Attempted</p>
+        </div>
+        <div class="stat-card">
+            <span>🏆</span>
+            <h3 id="totalBadges">0</h3>
+            <p>Achievements</p>
+        </div>
+    </div>
+
+    <div class="dashboard-panel">
+        <h3>My Learning Level</h3>
+        <h2 id="userLevel">Beginner</h2>
+        <p id="levelDescription">Start practicing to earn points and grow!</p>
+        <div class="progress-track">
+            <div id="levelProgress" class="progress-fill"></div>
+        </div>
+        <p id="levelProgressText">0 points earned</p>
+    </div>
+
+    <div class="dashboard-panel">
+        <h3>Interview Progress</h3>
+        <p id="progressSummary">You have attempted 0 questions so far.</p>
+        <div class="progress-track">
+            <div id="questionProgress" class="progress-fill"></div>
+        </div>
+        <p id="questionProgressText">0 / 100 questions</p>
+    </div>
+
+    <div class="dashboard-panel">
+        <h3>Achievement Badges</h3>
+        <div id="badgeContainer" class="badge-container"></div>
+    </div>
+
+    <button class="secondary-button" onclick="resetProgress()">Reset My Progress</button>
+</section>
+
+<!-- SKILL ANALYZER -->
+<section id="skill-analyzer" class="feature-page" hidden>
+    <button class="back-button" onclick="goHome()">← Home</button>
+    <h2>Skill Gap Analyzer</h2>
+    <p>Select your desired job role to discover the important skills.</p>
+
+    <label for="jobRole">Choose Job Role</label>
+    <select id="jobRole">
+        <option value="web">Web Developer</option>
+        <option value="data">Data Analyst</option>
+        <option value="design">UI/UX Designer</option>
+        <option value="python">Python Developer</option>
+        <option value="java">Java Developer</option>
+        <option value="frontend">Frontend Developer</option>
+        <option value="backend">Backend Developer</option>
+        <option value="testing">Software Tester</option>
+        <option value="business">Business Analyst</option>
+        <option value="marketing">Digital Marketing Executive</option>
+    </select>
+
+    <button onclick="analyzeSkills()">Analyze Skills</button>
+    <div id="skillResult" class="result-panel" aria-live="polite"></div>
+</section>
+
+<!-- LEARNING ROADMAP -->
+<section id="roadmap" class="feature-page" hidden>
+    <button class="back-button" onclick="goHome()">← Home</button>
+    <h2>Learning Roadmap</h2>
+    <p>Select a career role to view your learning roadmap.</p>
+
+    <label for="roadmapRole">Choose Job Role</label>
+    <select id="roadmapRole">
+        <option value="web">Web Developer</option>
+        <option value="data">Data Analyst</option>
+        <option value="design">UI/UX Designer</option>
+        <option value="python">Python Developer</option>
+        <option value="java">Java Developer</option>
+        <option value="frontend">Frontend Developer</option>
+        <option value="backend">Backend Developer</option>
+        <option value="testing">Software Tester</option>
+        <option value="business">Business Analyst</option>
+        <option value="marketing">Digital Marketing Executive</option>
+    </select>
+
+    <button onclick="showRoadmap()">Show Roadmap</button>
+    <div id="roadmapResult" class="result-panel" aria-live="polite"></div>
+</section>
+
+<!-- INTERVIEW PREPARATION -->
+<section id="interview" class="feature-page" hidden>
+    <button class="back-button" onclick="goHome()">← Home</button>
+    <h2>Interview Preparation</h2>
+    <p>Choose your job role and practice mode to begin.</p>
+
+    <label for="interviewRole">Choose Job Role</label>
+    <select id="interviewRole">
+        <option value="web">Web Developer</option>
+        <option value="data">Data Analyst</option>
+        <option value="design">UI/UX Designer</option>
+        <option value="python">Python Developer</option>
+        <option value="java">Java Developer</option>
+        <option value="frontend">Frontend Developer</option>
+        <option value="backend">Backend Developer</option>
+        <option value="testing">Software Tester</option>
+        <option value="business">Business Analyst</option>
+        <option value="marketing">Digital Marketing Executive</option>
+    </select>
+
+    <h3 class="mode-heading">Select Interview Practice Mode</h3>
+    <div class="mode-container">
+        <button class="mode-button" data-mode="beginner" onclick="selectMode('beginner')">
+            Beginner 
+        </button>
+        <button class="mode-button" data-mode="intermediate" onclick="selectMode('intermediate')">
+            Intermediate 
+        </button>
+        <button class="mode-button" data-mode="challenge" onclick="selectMode('challenge')">
+            Interview Challenge 
+        </button>
+        <button class="mode-button" data-mode="technical" onclick="selectMode('technical')">
+            Technical Interview 
+        </button>
+        <button class="mode-button" data-mode="complete" onclick="selectMode('complete')">
+            Complete Interview Practice 
+        </button>
+    </div>
+
+    <p id="selectedMode" aria-live="polite">Select a practice mode to begin.</p>
+    <div id="interviewQuestions"></div>
+</section>
+
+<!-- RESUME STUDIO -->
+<section id="resume-studio" class="feature-page" hidden>
+    <button class="back-button" onclick="goHome()">← Home</button>
+    <h2>Resume Studio</h2>
+    <p>Create your resume or analyze an existing resume.</p>
+
+    <div class="resume-tabs">
+        <button onclick="showResumeTab('resume-builder')">Resume Builder</button>
+        <button onclick="showResumeTab('resume-analyzer')">Resume Analyzer</button>
+    </div>
+
+    <div id="resume-builder" class="resume-section">
+        <h3>Build Your Resume</h3>
+
+        <div class="form-panel">
+            <label for="resumeName">Full Name</label>
+            <input type="text" id="resumeName" placeholder="Enter your full name">
+
+            <label for="resumeEmail">Email Address</label>
+            <input type="email" id="resumeEmail" placeholder="Enter your email">
+
+            <label for="resumePhone">Phone Number</label>
+            <input type="tel" id="resumePhone" placeholder="Enter your phone number">
+
+            <label for="resumeRole">Career Objective / Desired Role</label>
+            <input type="text" id="resumeRole" placeholder="Example: Web Developer">
+
+            <label for="resumeEducation">Education</label>
+            <textarea id="resumeEducation" placeholder="Enter your education details"></textarea>
+
+            <label for="resumeSkills">Technical / Professional Skills</label>
+            <textarea id="resumeSkills" placeholder="Enter your skills"></textarea>
+
+            <label for="resumeProjects">Projects</label>
+            <textarea id="resumeProjects" placeholder="Enter your project details"></textarea>
+
+            <label for="resumeExperience">Experience / Internships</label>
+            <textarea id="resumeExperience" placeholder="Enter experience or write Fresher"></textarea>
+
+            <label for="resumeCertificates">Upload Certificates</label>
+            <input type="file" id="resumeCertificates" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+            <p id="certificateNames" class="small-note">No certificates selected.</p>
+
+            <button onclick="generateResume()">Generate Resume</button>
+        </div>
+
+        <div id="resumePreview" class="resume-preview" hidden></div>
+        <button id="printResumeButton" onclick="printResume()" hidden>Print / Save as PDF</button>
+    </div>
+
+    <div id="resume-analyzer" class="resume-section" hidden>
+        <h3>Resume Analyzer</h3>
+        <p>Upload a text (.txt) resume file to check its content.</p>
+
+        <label for="resumeFile">Upload Resume (.txt)</label>
+        <input type="file" id="resumeFile" accept=".txt">
+
+        <button onclick="analyzeResume()">Analyze Resume</button>
+        <div id="resumeAnalysis" class="result-panel" aria-live="polite"></div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Career Compass | Your Career Guide</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

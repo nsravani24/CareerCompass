@@ -1,0 +1,744 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fc;
+    color: #172554;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #14264b;
+    color: white;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #93c5fd;
+}
+
+.hero {
+    text-align: center;
+    padding: 90px 20px;
+    background: linear-gradient(135deg, #e8efff, #ffffff);
+}
+
+.tagline {
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hero h2 {
+    font-size: 42px;
+    margin: 15px 0;
+}
+
+.hero > p:not(.tagline):not(#message) {
+    max-width: 650px;
+    margin: 0 auto 25px;
+    color: #526079;
+}
+
+button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 2px;
+}
+
+#message {
+    margin-top: 15px;
+    color: #166534;
+    font-weight: bold;
+}
+
+#features,
+#about {
+    padding: 55px 8%;
+    text-align: center;
+}
+
+#features h2,
+#about h2 {
+    margin-bottom: 25px;
+}
+
+.features-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.feature-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+    color: #1d4ed8;
+}
+
+.feature-card p,
+#about p {
+    color: #526079;
+    margin-bottom: 15px;
+}
+
+#about p {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: #14264b;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Feature Pages */
+
+.feature-page {
+    width: 100%;
+    min-height: 400px;
+    padding: 45px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #e8efff, #ffffff);
+}
+
+.feature-page h2 {
+    font-size: 30px;
+    margin: 25px 0 15px;
+    color: #172554;
+}
+
+.feature-page > p {
+    margin: 0 auto 20px;
+    color: #526079;
+}
+
+.back-button {
+    display: block;
+    margin: 0 auto 20px;
+    background-color: #14264b;
+}
+
+.feature-page label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.feature-page select {
+    display: block;
+    width: 280px;
+    max-width: 100%;
+    margin: 10px auto 20px;
+    padding: 11px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 14px;
+}
+
+.feature-page input,
+.feature-page textarea {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.feature-page button {
+    padding: 10px 18px;
+    font-size: 14px;
+}
+
+/* Results */
+
+.result-panel {
+    max-width: 750px;
+    margin: 25px auto;
+    padding: 22px;
+    background-color: white;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    text-align: left;
+    line-height: 1.9;
+}
+
+.result-panel h3 {
+    color: #1d4ed8;
+    margin-bottom: 10px;
+}
+
+.result-panel ul,
+.result-panel ol {
+    padding-left: 25px;
+}
+
+.result-panel li {
+    margin-bottom: 7px;
+}
+
+/* Interview Modes */
+
+.mode-heading {
+    margin: 28px 0 15px;
+    color: #172554;
+}
+
+.mode-container {
+    max-width: 550px;
+    width: 100%;
+    margin: 0 auto 22px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+.feature-page .mode-button {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+    background-color: white;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.feature-page .mode-button:hover,
+.feature-page .mode-button.active {
+    background-color: #dbeafe;
+    border-color: #2563eb;
+}
+
+#selectedMode {
+    margin: 15px 0;
+    color: #166534;
+    font-weight: bold;
+}
+
+/* Interview Question Cards */
+
+#interviewQuestions {
+    max-width: 800px;
+    margin: 25px auto;
+    text-align: left;
+}
+
+.question-card {
+    background-color: white;
+    padding: 22px;
+    margin-bottom: 18px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.question-card h3 {
+    margin-bottom: 12px;
+    color: #1d4ed8;
+}
+
+.question-card textarea {
+    display: block;
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    resize: vertical;
+}
+
+.answer-hint {
+    margin: 12px 0;
+    padding: 12px;
+    background-color: #e8efff;
+    border-radius: 8px;
+}
+
+.self-check {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0;
+    font-weight: normal !important;
+}
+
+.self-check input {
+    width: auto;
+}
+
+.question-status {
+    color: #166534;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.interview-summary {
+    padding: 20px;
+    background: white;
+    border: 1px solid #bfdbfe;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+/* Dashboard */
+
+.dashboard-grid {
+    max-width: 950px;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px 12px;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+}
+
+.stat-card span {
+    font-size: 28px;
+}
+
+.stat-card h3 {
+    color: #2563eb;
+    font-size: 28px;
+    margin: 8px 0;
+}
+
+.stat-card p {
+    color: #526079;
+    font-size: 14px;
+}
+
+.dashboard-panel {
+    max-width: 850px;
+    margin: 22px auto;
+    padding: 25px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    text-align: left;
+}
+
+.dashboard-panel h3 {
+    margin-bottom: 12px;
+    color: #1d4ed8;
+}
+
+.dashboard-panel h2 {
+    color: #2563eb;
+}
+
+.progress-track {
+    width: 100%;
+    height: 13px;
+    margin: 15px 0;
+    background-color: #e2e8f0;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background-color: #2563eb;
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+.badge-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.achievement-badge {
+    padding: 18px 10px;
+    text-align: center;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+.achievement-badge .badge-icon {
+    font-size: 30px;
+}
+
+.achievement-badge h4 {
+    margin: 8px 0;
+}
+
+.achievement-badge.locked {
+    opacity: 0.45;
+    filter: grayscale(1);
+}
+
+.secondary-button {
+    background-color: #475569;
+    margin: 15px;
+}
+
+/* Resume Studio */
+
+.resume-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 25px 0;
+}
+
+.form-panel {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 25px;
+    background: white;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    text-align: left;
+}
+
+.form-panel label {
+    margin-top: 15px;
+}
+
+.form-panel input,
+.form-panel textarea,
+#resumeFile {
+    display: block;
+    width: 100%;
+    padding: 11px;
+    margin: 8px 0 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: white;
+}
+
+.form-panel textarea {
+    min-height: 85px;
+    resize: vertical;
+}
+
+.small-note {
+    font-size: 13px;
+    color: #64748b;
+    margin: 8px 0 18px;
+}
+
+.resume-preview {
+    max-width: 750px;
+    margin: 25px auto;
+    padding: 35px;
+    background: white;
+    border: 1px solid #cbd5e1;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+.resume-preview h2 {
+    color: #1d4ed8;
+    margin-bottom: 5px;
+}
+
+.resume-preview h3 {
+    margin-top: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #cbd5e1;
+    color: #1d4ed8;
+}
+
+.resume-preview p {
+    margin: 7px 0;
+    white-space: pre-wrap;
+}
+
+#printResumeButton {
+    margin: 10px auto 25px;
+}
+
+#resume-analyzer {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+#resume-analyzer input {
+    display: block;
+    max-width: 400px;
+    width: 100%;
+    margin: 15px auto;
+    padding: 10px;
+    background: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+}
+
+/* Responsive Design */
+
+@media (max-width: 800px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .badge-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .hero {
+        padding: 65px 20px;
+    }
+
+    .hero h2 {
+        font-size: 30px;
+    }
+
+    .features-container {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-page {
+        padding: 30px 15px;
+    }
+
+    .feature-page h2 {
+        font-size: 25px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboard-panel {
+        padding: 18px;
+    }
+
+    .resume-preview {
+        padding: 20px;
+    }
+}
+
+/* Print Resume */
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #resumePreview,
+    #resumePreview * {
+        visibility: visible;
+    }
+
+    #resumePreview {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border: none;
+    }
+}
+
+
+/* ==========================================
+   SKILL LEARNING MODULES
+========================================== */
+
+.skill-result-header {
+    margin-bottom: 22px;
+}
+
+.learning-skill-card {
+    background: #f8faff;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 18px 0;
+}
+
+.learning-skill-card h3 {
+    color: #1d4ed8;
+    margin-bottom: 8px;
+}
+
+.learning-skill-card p {
+    color: #526079;
+    margin-bottom: 12px;
+}
+
+.learning-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.feature-page .notes-button {
+    background: #14264b;
+    color: white;
+}
+
+.feature-page .pdf-button {
+    background: #15803d;
+    color: white;
+}
+
+.notes-content {
+    margin-top: 18px;
+    padding: 20px;
+    background: white;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    line-height: 1.8;
+}
+
+.notes-content h3 {
+    color: #1d4ed8;
+    margin-bottom: 18px;
+}
+
+.notes-content h4 {
+    color: #1e40af;
+    margin: 20px 0 8px;
+}
+
+.notes-content p {
+    color: #334155;
+    margin-bottom: 12px;
+}
+
+.notes-topic {
+    padding: 12px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.notes-content pre {
+    background: #172554;
+    color: #e0f2fe;
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.notes-content code {
+    font-family: Consolas, monospace;
+}
+
+.interview-note {
+    padding: 12px;
+    margin: 12px 0;
+    background: #f1f5f9;
+    border-radius: 8px;
+}
+
+.learning-suggestion {
+    padding: 18px;
+    margin-top: 22px;
+    background: #e8efff;
+    border-left: 4px solid #2563eb;
+    border-radius: 8px;
+}
+
+.learning-suggestion h3 {
+    color: #1d4ed8;
+    margin-bottom: 8px;
+}
+
+.learning-suggestion p {
+    margin: 0;
+    color: #334155;
+}
+
+@media (max-width: 600px) {
+
+    .learning-skill-card {
+        padding: 15px;
+    }
+
+    .learning-actions {
+        flex-direction: column;
+    }
+
+    .learning-actions button {
+        width: 100%;
+    }
+
+    .notes-content {
+        padding: 14px;
+    }
+}
