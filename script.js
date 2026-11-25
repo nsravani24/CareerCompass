@@ -125,7 +125,7 @@ const jobSkills = {
 
 // One common PDF for all 10 job roles.
 
-const learningPDF = "resources/careercompass-learning-guide.pdf";
+const learningPDF = "https://nsravani24.github.io/CareerCompass/careercompass-learning-guide.pdf";
 
 
 function analyzeSkills() {
